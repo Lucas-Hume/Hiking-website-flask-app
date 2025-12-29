@@ -1,0 +1,15 @@
+    
+    
+    [
+        {
+            "name": "Horse track",
+            "lat": -33.635,
+            "lon": 150.284,
+            "location": "Blackeath, AU",
+            "date": "2025-07-15",
+            "difficulty": "Hard",
+            "distance_km": 11,
+            "image_url": "Horse_track.jpg",
+            "elevation": 500
+        }
+    ]
