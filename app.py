@@ -1,14 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,jsonify
 from services.weather import get_weather
-from services.trails_service import get_upcoming_trails
+from services.trails_service import get_upcoming_trails, get_completed_trails
+from flask_cors import CORS
+
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route("/")
 def home():
     return render_template("homepage.html")
 
-@app.route("/upcoming_trails")
+@app.route("/api/upcoming_trails")
 def upcoming():
     trails = get_upcoming_trails()
 
@@ -17,11 +19,12 @@ def upcoming():
         lat=trail["lat"],
         lon=trail["lon"]
         )
-    return render_template("upcoming_trails.html", trails=trails)
+    return jsonify(trails)
 
-@app.route("/completed_trails")
+@app.route("/api/completed_trails")
 def completed():
-    return render_template("completed_trails.html")
+    trails=get_completed_trails()
+    return jsonify(trails)
 
 if __name__ == "__main__":
     app.run(debug=True)
