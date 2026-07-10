@@ -32,5 +32,5 @@ def get_weather(lat=None, lon=None, units="metric"):
             "descriptions": "Weather data unavailable"
         }
 
-print(api_key)
+
 
